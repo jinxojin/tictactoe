@@ -8,20 +8,21 @@ const checkHorizontal = () => {
 
   for (let i = 0; i < 3; i++) {
     const tempArr = [];
-    let tempLetter = 0;
 
     for (let j = 0; j < 3; j++) {
       tempArr.push(tiles[tileArr[i] + j].textContent);
     }
 
     if (
+      tempArr[0] !== "" &&
       tempArr[0] === tempArr[1] &&
-      tempArr[0] === tempArr[2] &&
-      tempArr[0] !== ""
+      tempArr[0] === tempArr[2]
     ) {
       alert("horizontal");
+      return true;
     }
   }
+  return false;
 };
 
 const checkVertical = () => {
