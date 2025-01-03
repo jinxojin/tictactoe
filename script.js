@@ -33,14 +33,34 @@ const checkVertical = () => {
       tempArr.push(tiles[i + j].textContent);
     }
 
-    console.log(tempArr);
-
     if (
       tempArr[0] !== "" &&
       tempArr[0] === tempArr[1] &&
       tempArr[0] === tempArr[2]
     ) {
       alert("vertical");
+      return true;
+    }
+  }
+  return false;
+};
+
+const checkDiagonal = () => {
+  for (let i = 0; i < 2; i++) {
+    const tileArr = [
+      [0, 4, 8],
+      [2, 4, 6],
+    ];
+    const tempArr = [];
+    for (let j = 0; j < 3; j++) {
+      tempArr.push(tiles[tileArr[i][j]].textContent);
+    }
+    if (
+      tempArr[0] !== "" &&
+      tempArr[0] === tempArr[1] &&
+      tempArr[0] === tempArr[2]
+    ) {
+      alert("diagonal");
       return true;
     }
   }
@@ -59,6 +79,7 @@ const draw = (event) => {
     }
     checkHorizontal();
     checkVertical();
+    checkDiagonal();
   }
 };
 
